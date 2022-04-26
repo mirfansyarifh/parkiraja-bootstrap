@@ -1,0 +1,28 @@
+.navbar-brand {
+    padding-left: 20px !important;
+  }
+.navbar {
+  background-color: #e3f2fd;
+}
+h2 {
+  text-align: center;
+}
+
+.heroes-menu {
+  padding: 0;
+  margin: auto;
+  max-width: 1000px;
+
+  /* flexbox */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+a:hover {
+  background-color: white;
+  border-radius: 10px;
+}

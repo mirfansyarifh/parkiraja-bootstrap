@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  currentURL = this.router.url;
+
+  homeAdminActive = '';
+  parkingLotActive = '';
+  pricingActive = '';
 
   ngOnInit(): void {
+    this.currentURL;
+    this.menuActive();
   }
 
+  menuActive() {
+    if (this.currentURL === "admin") {
+      this.homeAdminActive = "active";
+    }
+    else if (this.currentURL === "parking") {
+      this.parkingLotActive = "active";
+    }
+  }
 }

@@ -4,13 +4,13 @@ import { GodyaComponent } from './godya/godya.component';
 import { AzizComponent } from './aziz/aziz.component';
 import { IrfanComponent } from './irfan/irfan.component';
 import { AlfinComponent } from './alfin/alfin.component';
-import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { DevelopmentComponent } from './development/development.component';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'development',
     component: DevelopmentComponent,
     children: [
       {

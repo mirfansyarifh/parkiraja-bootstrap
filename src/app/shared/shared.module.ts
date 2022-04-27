@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { TableComponent } from './table/table.component';
-import { ButtonComponent } from './button/button.component';
-import { AlertComponent } from './alert/alert.component';
-import { ExceptionPageComponent } from './exception-page/exception-page.component';
-import { CardComponent } from './card/card.component';
-import { ModalComponent } from './modal/modal.component';
-import { StaticWidgetComponent } from './static-widget/static-widget.component';
-import { FormsComponent } from './forms/forms.component';
+
+import { SharedRoutingModule } from './shared-routing.module';
+import { HeaderComponent } from './layouts/header/header.component';
+import { FooterComponent } from './layouts/footer/footer.component';
+import { SidebarComponent } from './layouts/sidebar/sidebar.component';
+import { TableComponent } from './components/table/table.component';
+import { ButtonComponent } from './components/button/button.component';
+import { AlertComponent } from './components/alert/alert.component';
+import { CardComponent } from './components/card/card.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { FormComponent } from './components/form/form.component';
+import { WidgetCardComponent } from './components/widget-card/widget-card.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { InternalServerErrorComponent } from './pages/internal-server-error/internal-server-error.component';
 
 
 @NgModule({
@@ -21,14 +24,16 @@ import { FormsComponent } from './forms/forms.component';
     TableComponent,
     ButtonComponent,
     AlertComponent,
-    ExceptionPageComponent,
     CardComponent,
     ModalComponent,
-    StaticWidgetComponent,
-    FormsComponent
+    FormComponent,
+    WidgetCardComponent,
+    NotFoundComponent,
+    InternalServerErrorComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedRoutingModule
   ],
   exports: [
     HeaderComponent,
@@ -37,12 +42,12 @@ import { FormsComponent } from './forms/forms.component';
     TableComponent,
     ButtonComponent,
     AlertComponent,
-    ExceptionPageComponent,
     CardComponent,
     ModalComponent,
-    StaticWidgetComponent,
-    FormsComponent
+    FormComponent,
+    WidgetCardComponent,
+    NotFoundComponent,
+    InternalServerErrorComponent
   ]
 })
-
 export class SharedModule { }

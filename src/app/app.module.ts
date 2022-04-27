@@ -20,6 +20,7 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { ParkingModule } from './parking/parking.module';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { SharedModule } from './shared/shared.module';
     MdbTooltipModule,
     MdbValidationModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    ParkingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

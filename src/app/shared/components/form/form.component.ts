@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -8,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class FormComponent implements OnInit {
 
   constructor() { }
+  @Input() widthValue = '100px';
+  @Input() heightValue = '200px';
+  @Input() formValue = 'Text';
+  @Input() nameUpForm = 'Text';
 
   ngOnInit(): void {
+    this.widthValue;
+    this.heightValue;
+    this.formValue;
+    this.nameUpForm;
   }
 
 }

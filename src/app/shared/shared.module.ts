@@ -15,6 +15,7 @@ import { WidgetCardComponent } from './components/widget-card/widget-card.compon
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { InternalServerErrorComponent } from './pages/internal-server-error/internal-server-error.component';
 import { BackgroundImageComponent } from './background-image/background-image.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { BackgroundImageComponent } from './background-image/background-image.co
     WidgetCardComponent,
     NotFoundComponent,
     InternalServerErrorComponent,
-    BackgroundImageComponent
+    BackgroundImageComponent,
+    MessagesComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,8 @@ import { BackgroundImageComponent } from './background-image/background-image.co
     WidgetCardComponent,
     NotFoundComponent,
     InternalServerErrorComponent,
-    BackgroundImageComponent
+    BackgroundImageComponent,
+    MessagesComponent
   ]
 })
 export class SharedModule { }

@@ -37,17 +37,7 @@ export class ParkingApiService {
   private targetApiUrl = `${this.apiUrl}/parking`;  // URL to web api
 
   /** GET from the server */
-  getTimeSpent(parkingLotId: string): Observable<HttpResponse<PagingParking>> {
-    const customizedUrl = `${this.targetApiUrl}/${parkingLotId}/all/time_spent`;
-    // return this.http.get<PagingParking>(customizedUrl).pipe(
-    //   tap(_ => this.errorHandlerService.log('fetched Parking Data')),
-    //   catchError(this.errorHandlerService.handleError<PagingParking>(`getParking, ${parkingLotId}`))
-    // );
-    return this.http.get<PagingParking>(customizedUrl,
-      { observe: 'response' })
-  }
-
-  getTextFile(parkingLotId: string) {
+  getTimeSpent(parkingLotId: string) {
     const customizedUrl = `${this.targetApiUrl}/${parkingLotId}/all/time_spent`;
     return this.http.get(customizedUrl, { responseType: 'text' })
       .pipe(

@@ -22,7 +22,7 @@ export class GodyaComponent implements OnInit {
   }
 
   getTimeSpent() {
-    this.parkingApiService.getTextFile('40288182800cc09701800cc615cf0001')
+    this.parkingApiService.getTimeSpent('40288182800cc09701800cc615cf0001')
       .subscribe(results => this.results = results);
   }
 }

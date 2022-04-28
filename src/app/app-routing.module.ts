@@ -4,19 +4,33 @@ import { AdminModule } from './admin/admin.module';
 import { DevelopmentTestModule } from './development-test/development-test.module';
 import { OwnerModule } from './owner/owner.module';
 import { DashboardComponent } from './parking/dashboard/dashboard.component';
+import { ParkingModule } from './parking/parking.module';
 
 const routes: Routes = [
   {
     path: "development",
     loadChildren: () => import('./development-test/development-test.module').then(mod => mod.DevelopmentTestModule)
   },
-   {
+  {
     path: "admin",
     loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule)
   },
-   {
-     path: "",
-     component:DashboardComponent
+  {
+    path: "owner",
+    loadChildren: () => import('./owner/owner.module').then(mod => mod.OwnerModule)
+  },
+  {
+    path: "parking",
+    loadChildren: () => import('./parking/parking.module').then(mod => mod.ParkingModule)
+  },
+  {
+    path: "",
+    component: DashboardComponent
+  },
+  {
+    //page not found
+    path: "**",
+    component: DashboardComponent
   }
 ];
 
@@ -25,7 +39,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     DevelopmentTestModule,
     AdminModule,
-    OwnerModule
+    OwnerModule,
+    ParkingModule
   ],
   exports: [RouterModule]
 })

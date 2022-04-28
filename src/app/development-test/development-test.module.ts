@@ -9,9 +9,9 @@ import { DevelopmentComponent } from './development/development.component';
 import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
+  { path: 'development', component: DevelopmentComponent },
   {
     path: 'development',
-    component: DevelopmentComponent,
     children: [
       {
         path: 'alfin',

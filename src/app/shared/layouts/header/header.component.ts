@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { HeaderConfigService } from 'src/app/core/service/header-config.service';
 
 @Component({
   selector: 'app-header',
@@ -8,25 +8,42 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
-
-  currentURL = this.router.url;
-
+  constructor(private headerConfigService: HeaderConfigService) { }
   homeAdminActive = '';
-  parkingLotActive = '';
-  pricingActive = '';
+  ownerActive = '';
+  lotActive = '';
+  ticketActive = '';
 
   ngOnInit(): void {
-    this.currentURL;
     this.menuActive();
   }
 
+  clearActive() {
+    this.homeAdminActive = '';
+    this.ownerActive = '';
+    this.lotActive = '';
+    this.ticketActive = '';
+  }
   menuActive() {
-    if (this.currentURL === "admin") {
-      this.homeAdminActive = "active";
-    }
-    else if (this.currentURL === "parking") {
-      this.parkingLotActive = "active";
-    }
+    this.headerConfigService.URL.subscribe(url => {
+
+      var splitted = url.split("/");
+      console.log(splitted);
+
+      if (splitted[1] === "admin") {
+        this.clearActive();
+        this.homeAdminActive = "active";
+      }
+      else if (splitted[1] == "owner") {
+        this.clearActive();
+        this.ownerActive = "active";
+      }
+      else if (splitted[1] == "parking") {
+        this.clearActive();
+        this.lotActive = "active";
+      }
+    });
+
+
   }
 }

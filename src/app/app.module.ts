@@ -21,6 +21,7 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { ParkingModule } from './parking/parking.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ParkingModule } from './parking/parking.module';
     MdbValidationModule,
     BrowserAnimationsModule,
     SharedModule,
-    ParkingModule
+    ParkingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

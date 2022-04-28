@@ -5,10 +5,13 @@
   <a class="navbar-brand" href="#"></a>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a routerLink="/admin" class="nav-item nav-link  {{homeAdminActive}}">Home</a>
-      <a routerLink="/owner" class="nav-item nav-link {{ownerActive}}" href="#">Owner</a>
-      <a routerLink="/parking" class="nav-item nav-link {{lotActive}}" href="#">Lot</a>
-      <!-- <a class="nav-item nav-link disabled" href="#">Tidak</a> -->
+      <a routerLink="/admin" *ngIf="adminVisibility" class="nav-item nav-link  {{homeAdminActive}}">Home</a>
+      <a routerLink="/owner" *ngIf="adminVisibility" class="nav-item nav-link {{ownerActive}}" href="#">Owner</a>
+      <a routerLink="/parking" *ngIf="adminVisibility" class="nav-item nav-link {{lotActive}}" href="#">Lot</a>
+
+      <a routerLink="/parking" *ngIf="publicVisibility" class="nav-item nav-link  {{homeAdminActive}}">Home</a>
+      <a routerLink="/parking/check-in" *ngIf="publicVisibility" class="nav-item nav-link {{ownerActive}}" href="#">Check In</a>
+      <a routerLink="/parking/check-out" *ngIf="publicVisibility" class="nav-item nav-link {{lotActive}}" href="#">Check Out</a>
     </div>
   </div>
 </nav>

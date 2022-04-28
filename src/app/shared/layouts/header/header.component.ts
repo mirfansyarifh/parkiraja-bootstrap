@@ -14,6 +14,9 @@ export class HeaderComponent implements OnInit {
   lotActive = '';
   ticketActive = '';
 
+  adminVisibility = true;
+  publicVisibility = false;
+
   ngOnInit(): void {
     this.menuActive();
   }
@@ -24,6 +27,7 @@ export class HeaderComponent implements OnInit {
     this.lotActive = '';
     this.ticketActive = '';
   }
+
   menuActive() {
     this.headerConfigService.URL.subscribe(url => {
 
@@ -31,6 +35,10 @@ export class HeaderComponent implements OnInit {
       console.log(splitted);
 
       if (splitted[1] === "admin") {
+        this.clearActive();
+        this.homeAdminActive = "active";
+      }
+      else if (splitted[1] == "") {
         this.clearActive();
         this.homeAdminActive = "active";
       }
@@ -43,7 +51,6 @@ export class HeaderComponent implements OnInit {
         this.lotActive = "active";
       }
     });
-
-
   }
+
 }

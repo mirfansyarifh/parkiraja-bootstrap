@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { HeaderConfigService } from 'src/app/core/service/header-config.service';
 import { ParkingApiService } from 'src/app/core/service/parking/parking-api.service';
 import { LogService } from 'src/app/core/service/log.service';
-import { PagingContent, PagingParking, ParkingContent } from 'src/app/core/model/parking';
+import { PagingContent } from 'src/app/core/model/parking';
 
 @Component({
   selector: 'app-godya',

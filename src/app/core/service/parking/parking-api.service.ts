@@ -25,6 +25,12 @@ export class ParkingApiService {
     return this.http.get<PagingParking>(customizedUrl)
   }
 
+  /** GET Count vehicle */
+  countVehicle(vehicleType: string) {
+    const customizedUrl = `${this.targetApiUrl}/${vehicleType}/count`;
+    return this.http.get<number>(customizedUrl)
+  }
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

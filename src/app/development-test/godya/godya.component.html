@@ -1,5 +1,3 @@
-<!-- <a>Type Kendaraan: {{results}}</a> -->
-
 <ul>
     <li *ngFor="let eachPagingContent of pagingContent">
         ID: {{eachPagingContent.content.id}} <br/>
@@ -11,4 +9,5 @@
         <button>Check-Out</button> <br/>
         =====================================================
     </li>
+    <div>Page: {{pageNumber}} of {{totalPage}}</div>
 </ul>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeaderConfigService } from 'src/app/core/service/header-config.service';
 import { ParkingApiService } from 'src/app/core/service/parking-api.service';
+import { LogService } from 'src/app/core/service/log.service';
 
 @Component({
   selector: 'app-godya',
@@ -14,7 +15,8 @@ export class GodyaComponent implements OnInit {
 
   constructor(private router: Router,
     private headerConfigService: HeaderConfigService,
-    private parkingApiService: ParkingApiService) { }
+    private parkingApiService: ParkingApiService,
+    private logger: LogService) { }
 
   ngOnInit(): void {
     this.headerConfigService.setURL(this.router.url);
@@ -23,6 +25,6 @@ export class GodyaComponent implements OnInit {
 
   getTimeSpent() {
     this.parkingApiService.getTimeSpent('40288182800cc09701800cc615cf0001')
-      .subscribe(results => this.results = results);
+      .subscribe(results => this.logger.log(results));
   }
 }

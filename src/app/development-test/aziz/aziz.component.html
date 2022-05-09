@@ -1,7 +1,14 @@
-<app-button>
-</app-button>
-<!-- <app-card>
-</app-card> -->
-<app-form formValue="password" heightValue="50px" widthValue="250px">{{'aziz'}}
-</app-form>
-<app-table></app-table>
+<ul>
+    <li *ngFor="let eachPagingParkingLot of parkingLotContent">
+        ID: {{eachPagingParkingLot.id}} <br />
+        OWNER ID: {{eachPagingParkingLot.ownerId}} <br />
+        NAME: {{eachPagingParkingLot.name}} <br />
+        ADDRESS: {{eachPagingParkingLot.address}} <br />
+        SIZE: {{eachPagingParkingLot.size}} <br />
+        CAPACITY: {{eachPagingParkingLot.capacity}} <br />
+        CATEGORY: {{eachPagingParkingLot.category}} <br />
+      
+        <button>Check-Out</button> <br />
+        =====================================================
+    </li>
+</ul>

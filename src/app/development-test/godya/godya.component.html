@@ -1,1 +1,14 @@
-<a>{{results}}</a>
+<!-- <a>Type Kendaraan: {{results}}</a> -->
+
+<ul>
+    <li *ngFor="let eachPagingContent of pagingContent">
+        ID: {{eachPagingContent.content.id}} <br/>
+        Parking Lot Id: {{eachPagingContent.content.parkingLotId}} <br/>
+        License Plate: {{eachPagingContent.content.licensePlate}} <br/>
+        Vehicle Type: {{eachPagingContent.content.type}} <br/>
+        Entrance Time: {{eachPagingContent.content.entrance}} <br/>
+        Time Spent: {{eachPagingContent.timeSpent}} <br/>
+        <button>Check-Out</button> <br/>
+        =====================================================
+    </li>
+</ul>

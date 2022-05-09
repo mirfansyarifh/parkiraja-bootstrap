@@ -1,5 +1,5 @@
 export interface PagingParking {
-    pagingContent: Array<PagingContent>;
+    content: Array<PagingContent>;
     pageNumber: number;
     pageSize: number;
     totalPages: number;
@@ -7,7 +7,7 @@ export interface PagingParking {
 }
 
 export interface PagingContent {
-    parkingContent: Array<ParkingContent>;
+    content: ParkingContent;
     timeSpent: string;
 }
 

@@ -4,8 +4,9 @@ import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders, HttpParams } 
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
-import { PagingParking } from '../model/parking';
-import { ErrorHandlerService } from './error-handler.service';
+import { PagingParking } from '../../model/parking';
+import { ErrorHandlerService } from './../error-handler.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,9 +20,9 @@ export class ParkingApiService {
   private targetApiUrl = `${this.apiUrl}/parking`;  // URL to web api
 
   /** GET from the server */
-  getTimeSpent(parkingLotId: string) {
+  getTimeSpent(parkingLotId: string): Observable<PagingParking> {
     const customizedUrl = `${this.targetApiUrl}/${parkingLotId}/all/time_spent`;
-    return this.http.get(customizedUrl, { observe: 'response' })
+    return this.http.get<PagingParking>(customizedUrl)
   }
 
   httpOptions = {

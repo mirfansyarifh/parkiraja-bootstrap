@@ -9,12 +9,18 @@ export class AlertComponent implements OnInit {
 
   @Input() alertClass = 'alert-danger';
   @Input() alertValue = 'Default Alert Value';
+  @Input() alertVisible = false;
 
   constructor() { }
 
   ngOnInit(): void {
     this.alertClass;
     this.alertValue;
+    this.alertVisible;
+  }
+
+  alertButtonClicked() {
+    this.alertVisible = false;
   }
 
 }

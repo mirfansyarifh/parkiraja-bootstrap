@@ -1,0 +1,10 @@
+<form [formGroup]="plate">
+<label for="plateCityCode">License plate: </label> <br/>
+    <input class="standard-input plate-alphabet" id="plateCityCode" type="text"
+     placeholder="B" maxlength="2" formControlName="plateCityCode" (change)="toParent()"/>
+    <input class="standard-input plate-number" id="plateNumber" type="number"
+     placeholder="1234" maxlength="4" formControlName="plateNumber" (change)="toParent()"/>
+    <input class="standard-input plate-alphabet" id="plateIdentifier" type="text"
+     placeholder="ABC" maxlength="3" formControlName="plateIdentifier" (change)="toParent()"/> <br/>
+
+</form>

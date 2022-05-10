@@ -6,7 +6,7 @@ import { CheckInComponent } from './check-in/check-in.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     ParkingRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     CheckInComponent,

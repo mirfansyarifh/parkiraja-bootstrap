@@ -4,7 +4,7 @@ import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders, HttpParams } 
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
-import { PagingParking } from '../../model/parking';
+import { PagingParking, ParkingContent } from '../../model/parking';
 import { ErrorHandlerService } from './../error-handler.service';
 
 @Injectable({
@@ -13,7 +13,8 @@ import { ErrorHandlerService } from './../error-handler.service';
 export class ParkingApiService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private error: ErrorHandlerService
   ) { }
 
   apiUrl = environment.apiUrl;
@@ -23,6 +24,17 @@ export class ParkingApiService {
   getTimeSpent(parkingLotId: string): Observable<PagingParking> {
     const customizedUrl = `${this.targetApiUrl}/${parkingLotId}/all/time_spent`;
     return this.http.get<PagingParking>(customizedUrl)
+  }
+
+  /** GET Count vehicle */
+  countVehicle(vehicleType: string) {
+    const customizedUrl = `${this.targetApiUrl}/${vehicleType}/count`;
+    return this.http.get<number>(customizedUrl)
+  }
+
+  /** POST: add vehicle to parking */
+  checkIn(parking: any): Observable<any> {
+    return this.http.post<any>(this.targetApiUrl, parking, this.httpOptions);
   }
 
   httpOptions = {

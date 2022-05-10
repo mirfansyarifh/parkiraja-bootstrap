@@ -1,1 +1,30 @@
-<p>index works!</p>
+<div class="container" style="padding-top: 80px">
+  <div class="row">
+    <table class="table">
+      <thead class="table-head">
+        <tr style="text-align: center;">
+          <th>No</th>
+          <th>Card Id</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+        <tr *ngFor="let eachOwnerData of ownerData; let i = index" style="text-align: center;">
+          <td>{{ i+1 }}</td>
+          <td>{{ eachOwnerData.idCard }}</td>
+          <td>{{ eachOwnerData.name }}</td>
+          <td>{{ eachOwnerData.address }}</td>
+          <td>{{ eachOwnerData.phoneNumber }}</td>
+          <td>
+            <button class="btn-primary" onclick="" style="border-radius: 5px;">Edit</button>&nbsp;
+            <button class="btn-danger" (click)="deleteOwner(eachOwnerData.id)" style="border-radius: 5px;">Delete</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

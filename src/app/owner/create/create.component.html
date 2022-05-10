@@ -1,0 +1,30 @@
+<div class="container" style="padding-top: 80px">
+  <div class="row">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group" style="padding-top: 10px;">
+        <label for="idCard">ID Card</label>
+        <input type="text" ngModel name="idCard" class="form-control" id="idCard" placeholder="ID Card Owner" [value]="" (change)="inputChange($event,null,null,null)" required>
+      </div>
+      <div class="form-group" style="padding-top: 10px;">
+        <label for="name">Name</label>
+        <input type="name" ngModel name="name" class="form-control" id="name" placeholder="Name" [value]="" (change)="inputChange(null,$event,null,null)" required>
+      </div>
+      <div class="form-group" style="padding-top: 10px;">
+        <label for="address">Address</label>
+        <input type="address" ngModel name="address" class="form-control" id="address" placeholder="Address" [value]="" (change)="inputChange(null,null,$event,null)" required>
+      </div>
+      <div class="form-group" style="padding-top: 10px; padding-bottom: 20px;">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" ngModel name="phoneNumber" class="form-control" id="phoneNumber" placeholder="Phone Number" [value]="" (change)="inputChange(null,null,null,$event)" required>
+      </div>
+      <button (click)="saveOwner()" class="btn btn-primary" >Save changes</button>
+
+    </div>
+    <div *ngIf="submitted">
+      <h4>Data Owner was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newOwner()">Add</button>
+    </div>
+  </div>
+  </div>
+</div>

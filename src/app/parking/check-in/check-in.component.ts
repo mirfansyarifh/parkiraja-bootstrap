@@ -68,7 +68,11 @@ export class CheckInComponent implements OnInit {
           }
         });
 
-
+    }
+    else {
+      this.alertValue = "Mohon isi Semua Data Secara Lengkap";
+      this.alertClass = "alert-danger";
+      this.alertVisible = true;
     }
 
   }

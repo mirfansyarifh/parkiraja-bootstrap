@@ -10,6 +10,7 @@ export class AlertComponent implements OnInit {
   @Input() alertClass = 'alert-danger';
   @Input() alertValue = 'Default Alert Value';
   @Input() alertVisible = false;
+  @Input() xxxx = "";
 
   constructor() { }
 

@@ -1,3 +1,16 @@
-<app-form formValue="text" heightValue="5vh" nameUpForm="Parking Lot Id" widthValue="100%"></app-form>
-<app-button buttonWidth="100%" buttonHeight="5vh" buttonValue="Check-Out"></app-button>
+<app-alert [alertClass]="alertClass" [alertValue]="alertValue" [alertVisible]="alertVisible"></app-alert>
+<app-plate-number (plateNumberOutput)="receivePlateNumber($event)"></app-plate-number>
+<button (click)="onClick()" type="button">Check-Out</button>
+
+<div *ngIf="cardVisible" class="card">
+    <h5 class="card-header">Bill:</h5>
+    <div class="card-body">
+      <p class="card-text">
+        License Plate: {{bill?.t?.licensePlate}} <br/>
+        Type: {{bill?.t?.type}} <br/>
+        Fee: {{bill?.price | currency: 'IDR'}} <br/>
+      </p>
+      <button type="button" class="btn btn-primary">Button</button>
+    </div>
+  </div>
 

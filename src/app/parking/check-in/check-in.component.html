@@ -1,26 +1,20 @@
-<!-- <app-form formValue="text" heightValue="5vh" nameUpForm="Parking Lot Id" widthValue="100%"></app-form>
-<app-form formValue="number" heightValue="5vh" nameUpForm="License Number" widthValue="100%"></app-form>
-<app-form formValue="text" heightValue="5vh" nameUpForm="Vehicle Type" widthValue="100%"></app-form>
-
-<app-button buttonWidth="100%" buttonHeight="5vh" buttonValue="Check-In"></app-button> -->
-
 <div>
+  <app-alert [alertClass]="alertClass" [alertValue]="alertValue" [alertVisible]="alertVisible"></app-alert>
+  <form [formGroup]="checkInForm" (ngSubmit)="OnSubmit()">
     <label for="parkingLotId">Parking Lot Id: </label> <br/>
-    <input class="standard-input" id="parkingLotId" type="text" #parkingLotId /> <br/>
+    <input class="standard-input" id="parkingLotId" type="text" formControlName="parkingLotId"/> <br/>
 
-    <label for="licenseNumber">License Plate: </label> <br/>
-    <input class="standard-input" id="licenseNumber" type="text" #licensePlateNumber 
-    (input)="inputEvent(licensePlateNumber.value)"
-    /> <br/>
-
-    <label for="licenseNumber">Vehicle Type: </label> <br/>
-    <select class="standard-input" formControlName="vehicleType" #vehicleType>
+    <app-plate-number (plateNumberOutput)="receivePlateNumber($event)"></app-plate-number>
+  
+    <label for="vehicleType">Vehicle Type: </label> <br/>
+    <select class="standard-input" id="vehicleType" formControlName="vehicleType">
     <option value="null">Vehicle Type</option>
     <option value="Bike">Bike</option>
     <option value="Car">Car</option>
     </select> <br/>
   
-    <button type="button" class="add-button" (click)="add(parkingLotId.value, licensePlateNumber.value, vehicleType.value);">
+    <button type="submit" class="add-button">
       Check-In
     </button>
+  </form>
   </div>

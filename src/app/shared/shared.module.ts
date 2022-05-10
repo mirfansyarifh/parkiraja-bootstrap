@@ -16,7 +16,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { InternalServerErrorComponent } from './pages/internal-server-error/internal-server-error.component';
 import { BackgroundImageComponent } from './background-image/background-image.component';
 import { MessagesComponent } from './components/messages/messages.component';
-
+import { PlateNumberComponent } from './components/plate-number/plate-number.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,11 +34,14 @@ import { MessagesComponent } from './components/messages/messages.component';
     NotFoundComponent,
     InternalServerErrorComponent,
     BackgroundImageComponent,
-    MessagesComponent
+    MessagesComponent,
+    PlateNumberComponent
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,
@@ -53,7 +57,8 @@ import { MessagesComponent } from './components/messages/messages.component';
     NotFoundComponent,
     InternalServerErrorComponent,
     BackgroundImageComponent,
-    MessagesComponent
+    MessagesComponent,
+    PlateNumberComponent
   ]
 })
 export class SharedModule { }

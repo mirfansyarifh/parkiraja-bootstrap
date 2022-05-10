@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HeaderConfigService } from 'src/app/core/service/header-config.service';
-import { ParkingContent } from 'src/app/core/model/parking';
 import { LogService } from 'src/app/core/service/log.service';
+import { ParkingApiService } from 'src/app/core/service/parking/parking-api.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-check-in',
@@ -11,34 +13,63 @@ import { LogService } from 'src/app/core/service/log.service';
 })
 export class CheckInComponent implements OnInit {
 
-  inputIsValid = false;
+  childIsValid = false;
+  plateNumber = "";
+  alertClass = "";
+  alertValue = "";
+  alertVisible = false;
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private headerConfigService: HeaderConfigService,
-    private logger: LogService) { }
+    private logger: LogService,
+    private parkingApiService: ParkingApiService) { }
 
   ngOnInit(): void {
     this.headerConfigService.setURL(this.router.url);
   }
 
-  add(parkingLotId: string, licensePlateNumber: string, vehicleType: string) {
-    if (this.inputIsValid != false) {
-      let parkingContent = {
-        parkingLotId: parkingLotId,
-        licensePlate: licensePlateNumber,
-        type: vehicleType
-      };
+  checkInForm = new FormGroup({
+    parkingLotId: new FormControl('', Validators.required),
+    vehicleType: new FormControl('', Validators.required)
+  })
 
-      this.logger.log(parkingContent);
+  receivePlateNumber($event: object) {
+    let { output, valid }: any = $event;
+    this.childIsValid = true;
+
+    if (valid) {
+      this.plateNumber = output;
     }
   }
 
-  inputEvent(licensePlateNumber: string) {
-    if (licensePlateNumber.length > 11) {
-      this.logger.log("INPUT TIDAK MASUK AKAL")
+  OnSubmit() {
+    if (this.checkInForm.valid && this.childIsValid) {
+
+      let parkingContent = {
+        parkingLotId: this.checkInForm.get('parkingLotId')?.value,
+        licensePlate: this.plateNumber,
+        type: this.checkInForm.get('vehicleType')?.value
+      };
+
+      this.logger.log(parkingContent)
+
+      this.parkingApiService.checkIn(parkingContent)
+        .subscribe({
+          next: (res) => {
+            this.alertClass = "alert-success";
+            this.alertValue = "Saved";
+            this.alertVisible = true;
+          },
+          error: (e: HttpErrorResponse) => {
+            this.alertValue = e.error.message;
+            this.alertClass = "alert-danger";
+            this.alertVisible = true;
+          }
+        });
+
+
     }
-    else {
-      this.inputIsValid == true;
-    }
+
   }
 }

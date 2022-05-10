@@ -8,7 +8,46 @@
         CAPACITY: {{eachPagingParkingLot.capacity}} <br />
         CATEGORY: {{eachPagingParkingLot.category}} <br />
       
-        <button>Check-Out</button> <br />
+        <button (click)="deleteParkingLot(eachPagingParkingLot.id)">Delete</button> <br />
         =====================================================
     </li>
 </ul>
+
+
+
+<h1>Tes Post Data </h1>
+<!-- <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>SUCCESS</strong> Your data hasbeen input
+    <button (click)="buttonClick()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div> -->
+
+
+    <label>Owner ID</label>
+    <input type="text"  name="ownerId" placeholder="please enter ownerid " #ownerId>
+    <br><br>
+
+    <label>name</label>
+    <input type="text"  name="name" placeholder="please enter name " #name>
+    <br><br>
+
+    <label>address</label>
+    <input type="text"  name="address" placeholder="please enter address " #address>
+    <br><br>
+
+    <label >size</label>
+    <input type="number"  name="size" placeholder="please enter size " #size>
+    <br><br>
+
+    <label>capcity</label>
+    <input type="number"  name="capacity" placeholder="please enter capacity " #capacity>
+    <br><br>
+
+    <label>category</label>
+    <input type="text" name="category" placeholder="please enter category " #category>
+    <br><br>
+
+    <button  (click)="add(ownerId.value, name.value, address.value, size.value, capacity.value, category.value);"  >ADD NEW PARKING LOT</button>
+    
+<!-- </form>  -->

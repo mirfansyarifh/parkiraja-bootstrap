@@ -5,7 +5,7 @@ import { DevelopmentTestModule } from './development-test/development-test.modul
 import { OwnerModule } from './owner/owner.module';
 import { DashboardComponent } from './parking/dashboard/dashboard.component';
 import { ParkingModule } from './parking/parking.module';
-
+import { ParkingLotModule } from './parking-lot/parking-lot.module';
 const routes: Routes = [
   {
     path: "development",
@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./parking/parking.module').then(mod => mod.ParkingModule)
   },
   {
+    path: "parking-lot",
+    loadChildren: () => import('./parking-lot/parking-lot.module').then(mod => mod.ParkingLotModule)
+  },
+  {
     path: "",
     component: DashboardComponent
   },
@@ -40,7 +44,8 @@ const routes: Routes = [
     DevelopmentTestModule,
     AdminModule,
     OwnerModule,
-    ParkingModule
+    ParkingModule,
+    ParkingLotModule
   ],
   exports: [RouterModule]
 })

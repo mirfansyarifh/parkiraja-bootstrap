@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ErrorHandlerService } from '../error-handler.service';
 import { tap } from 'rxjs/operators';
-import { PagingParkingLot } from '../../model/parkingLot';
+import { PagingParkingLot, ParkingLotContent } from '../../model/parkingLot';
 import { Observable } from 'rxjs';
 
 
@@ -25,10 +25,25 @@ export class ParkingLotApiService {
     return this.http.get<PagingParkingLot>(this.targetApiUrl)
   }
 
+   /** POST: add a new hero to the database */
+  postParkingLot(parkingLot :  object): any{
+  return this.http.post<ParkingLotContent>(this.targetApiUrl, parkingLot, this.httpOptions)
+
+  }
+
+  /** DELETE: delete the hero from the server */
+  deleteParkingLot(id : any): any{ 
+    return this.http.delete<ParkingLotContent>(`${this.targetApiUrl}?id=` +id)
+  }
+
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+
+
+ 
 
 
 }

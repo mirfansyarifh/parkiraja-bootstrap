@@ -1,0 +1,26 @@
+<label>Owner ID</label>
+<input type="text" name="ownerId" placeholder="please enter ownerid " #ownerId>
+<br><br>
+
+<label>name</label>
+<input type="text" name="name" placeholder="please enter name " #name>
+<br><br>
+
+<label>address</label>
+<input type="text" name="address" placeholder="please enter address " #address>
+<br><br>
+
+<label>size</label>
+<input type="number" name="size" placeholder="please enter size " #size>
+<br><br>
+
+<label>capcity</label>
+<input type="number" name="capacity" placeholder="please enter capacity " #capacity>
+<br><br>
+
+<label>category</label>
+<input type="text" name="category" placeholder="please enter category " #category>
+<br><br>
+
+<button (click)="add(ownerId.value, name.value, address.value, size.value, capacity.value, category.value);">ADD NEW
+    PARKING LOT</button>

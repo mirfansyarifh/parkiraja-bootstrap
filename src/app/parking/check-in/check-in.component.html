@@ -1,6 +1,6 @@
 <div>
   <app-alert [alertClass]="alertClass" [alertValue]="alertValue" [alertVisible]="alertVisible"></app-alert>
-  <form [formGroup]="checkInForm" (ngSubmit)="OnSubmit()">
+  <form [formGroup]="checkInForm" (ngSubmit)="onSubmit()">
     <label for="parkingLotId">Parking Lot Id: </label> <br/>
     <input class="standard-input" id="parkingLotId" type="text" formControlName="parkingLotId"/> <br/>
 

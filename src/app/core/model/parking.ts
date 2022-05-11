@@ -18,3 +18,9 @@ export interface ParkingContent {
     type: string;
     entrance: Date;
 }
+
+export interface Bill {
+    t: ParkingContent;
+    exitTime: Date;
+    price: number;
+}

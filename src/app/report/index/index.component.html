@@ -1,0 +1,33 @@
+<div class="container" style="padding-top: 80px">
+  <div class="row">
+    <table class="table">
+      <thead class="table-head">
+        <tr style="text-align: center;">
+          <th>No</th>
+          <th>Report Id</th>
+          <th>Parking Lot Id</th>
+          <th>License Plate</th>
+          <th>Entrance</th>
+          <th>Exit</th>
+          <th>Time Spent</th>
+          <th>Fee</th>
+          <th>Total Fee</th>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+        <tr *ngFor="let eachPagingReport of reportContent; let i = index" style="text-align: center;">
+          <td>{{ i+1 }}</td>
+          <td>{{ eachPagingReport.id }}</td>
+          <td>{{ eachPagingReport.parkingLotId }}</td>
+          <td>{{ eachPagingReport.licensePlate }}</td>
+          <td>{{ eachPagingReport.entrance }}</td>
+          <td>{{ eachPagingReport.exit }}</td>
+          <td>{{ eachPagingReport.timeSpent }}</td>
+          <td>{{ eachPagingReport.fee }}</td>
+          <td>{{ eachPagingReport.totalFee }}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

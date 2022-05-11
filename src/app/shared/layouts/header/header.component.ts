@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
         this.clearActive();
         this.ownerActive = "active";
       }
-      else if (splitted[1] == "parking") {
+      else if (splitted[1] == "parking-lot") {
         this.clearActive();
         this.lotActive = "active";
       }

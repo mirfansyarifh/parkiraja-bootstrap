@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
-import { PagingParking, ParkingContent } from '../../model/parking';
-import { ErrorHandlerService } from './../error-handler.service';
+import { Bill, PagingParking, ParkingContent } from '../../model/parking';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +11,7 @@ import { ErrorHandlerService } from './../error-handler.service';
 export class ParkingApiService {
 
   constructor(
-    private http: HttpClient,
-    private error: ErrorHandlerService
+    private http: HttpClient
   ) { }
 
   apiUrl = environment.apiUrl;
@@ -24,6 +21,18 @@ export class ParkingApiService {
   getTimeSpent(parkingLotId: string): Observable<PagingParking> {
     const customizedUrl = `${this.targetApiUrl}/${parkingLotId}/all/time_spent`;
     return this.http.get<PagingParking>(customizedUrl)
+  }
+
+  /** GET by plateNumber */
+  getByPlateNumber(plateNumber: string): Observable<ParkingContent> {
+    const customizedUrl = `${this.targetApiUrl}/plate?licensePlate=` + plateNumber;
+    return this.http.get<ParkingContent>(customizedUrl)
+  }
+
+  /** GET Bill by ID */
+  getBill(parkingId: string): Observable<Bill> {
+    const customizedUrl = `${this.targetApiUrl}/${parkingId}/bill`;
+    return this.http.get<Bill>(customizedUrl)
   }
 
   /** GET Count vehicle */

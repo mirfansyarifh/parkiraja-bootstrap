@@ -4,15 +4,15 @@ import { LogService } from 'src/app/core/service/log.service';
 import { ReportService } from 'src/app/core/service/report/report.service';
 
 @Component({
-  selector: 'app-alfin',
-  templateUrl: './alfin.component.html',
-  styleUrls: ['./alfin.component.scss']
+  selector: 'app-index',
+  templateUrl: './index.component.html',
+  styleUrls: ['./index.component.scss']
 })
-export class AlfinComponent implements OnInit {
+export class IndexComponent implements OnInit {
 
   results = "";
   reportContent : ReportContent [] = [];
-  
+
   constructor(
     private reportService: ReportService,
     private logger: LogService 
@@ -21,7 +21,7 @@ export class AlfinComponent implements OnInit {
   ngOnInit(): void {
     this.getReports()
   }
-  
+
   getReports() {
     this.reportService.getReports()
     .subscribe(results => {
@@ -30,4 +30,5 @@ export class AlfinComponent implements OnInit {
     })
   
   }
+  
 }

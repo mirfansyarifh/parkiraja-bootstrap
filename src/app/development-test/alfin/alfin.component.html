@@ -1,2 +1,13 @@
-<p>alfin works!</p>
-<app-button name="tes"></app-button>
+<ul>
+    <li *ngFor="let eachPagingReport of reportContent">
+        ID: {{eachPagingReport.id}} <br />
+        PARKING LOT ID: {{eachPagingReport.parkingLotId}} <br />
+        LICENSE PLATE: {{eachPagingReport.licensePlate}} <br />
+        ENTRANCE: {{eachPagingReport.entrance}} <br />
+        EXIT: {{eachPagingReport.exit}} <br />
+        TIME SPENT: {{eachPagingReport.timeSpent}} <br />
+        FEE: {{eachPagingReport.fee}} <br />
+        TOTAL FEE: {{eachPagingReport.totalFee}} <br />
+        <button>Check-Out</button> <br />
+    </li>
+</ul>

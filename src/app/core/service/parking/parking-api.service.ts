@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 import { Bill, PagingParking, ParkingContent } from '../../model/parking';
-import { ErrorHandlerService } from './../error-handler.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +11,7 @@ import { ErrorHandlerService } from './../error-handler.service';
 export class ParkingApiService {
 
   constructor(
-    private http: HttpClient,
-    private error: ErrorHandlerService
+    private http: HttpClient
   ) { }
 
   apiUrl = environment.apiUrl;

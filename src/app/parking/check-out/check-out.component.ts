@@ -62,7 +62,7 @@ export class CheckOutComponent implements OnInit {
         });
     }
     else {
-      this.alertValue = "Mohon isi Plat Nomor Secara Lengkap";
+      this.alertValue = "Please fill all inputs";
       this.alertClass = "alert-danger";
       this.alertVisible = true;
       this.cardVisible = false;

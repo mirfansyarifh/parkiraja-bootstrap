@@ -15,7 +15,7 @@ export class CheckInComponent implements OnInit {
 
   childIsValid = false;
   plateNumber = "";
-  alertClass = "";
+  alertClass = "alert-danger";
   alertValue = "";
   alertVisible = false;
 
@@ -70,7 +70,7 @@ export class CheckInComponent implements OnInit {
 
     }
     else {
-      this.alertValue = "Mohon isi Semua Data Secara Lengkap";
+      this.alertValue = "Please fill all inputs";
       this.alertClass = "alert-danger";
       this.alertVisible = true;
     }

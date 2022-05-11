@@ -1,6 +1,6 @@
 <app-alert [alertClass]="alertClass" [alertValue]="alertValue" [alertVisible]="alertVisible"></app-alert>
 <app-plate-number (plateNumberOutput)="receivePlateNumber($event)"></app-plate-number>
-<button (click)="onClick()" type="button">Check-Out</button>
+<button (click)="onClick()" type="button">Check Bill</button>
 
 <div *ngIf="cardVisible" class="card">
     <h5 class="card-header">Bill:</h5>
@@ -10,7 +10,7 @@
         Type: {{bill?.t?.type}} <br/>
         Fee: {{bill?.price | currency: 'IDR'}} <br/>
       </p>
-      <button type="button" class="btn btn-primary">Button</button>
+      <button type="button">Pay</button>
     </div>
   </div>
 

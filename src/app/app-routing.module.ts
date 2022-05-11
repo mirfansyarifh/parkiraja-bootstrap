@@ -5,6 +5,7 @@ import { DevelopmentTestModule } from './development-test/development-test.modul
 import { OwnerModule } from './owner/owner.module';
 import { DashboardComponent } from './parking/dashboard/dashboard.component';
 import { ParkingModule } from './parking/parking.module';
+import { ReportModule } from './report/report.module';
 
 const routes: Routes = [
   {
@@ -24,8 +25,8 @@ const routes: Routes = [
     loadChildren: () => import('./parking/parking.module').then(mod => mod.ParkingModule)
   },
   {
-    path: "",
-    component: DashboardComponent
+    path: "report",
+    loadChildren: () => import('./report/report.module').then(mod => mod.ReportModule)
   },
   {
     //page not found
@@ -40,7 +41,8 @@ const routes: Routes = [
     DevelopmentTestModule,
     AdminModule,
     OwnerModule,
-    ParkingModule
+    ParkingModule,
+    ReportModule
   ],
   exports: [RouterModule]
 })

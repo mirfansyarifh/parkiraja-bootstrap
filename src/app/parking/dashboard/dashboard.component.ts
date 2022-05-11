@@ -32,8 +32,11 @@ export class DashboardComponent implements OnInit {
         this.totalParking = this.totalBike + this.totalCar;
       });
     this.parkingApiService.countVehicle('Car')
-      .subscribe(results => { this.totalCar = results; });
-    this.totalParking = this.totalBike + this.totalCar;
+      .subscribe(results => {
+        this.totalCar = results;
+        this.totalParking = this.totalBike + this.totalCar;
+      });
+
   }
 
 }

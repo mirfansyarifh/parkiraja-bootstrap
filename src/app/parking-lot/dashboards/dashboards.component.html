@@ -1,3 +1,27 @@
+
+
+<label for="ownerId">Owner Id: </label> <br />
+<input class="standard-input" id="ownerId" type="text" formControlName="ownerId" #ownerId> <br />
+
+<label for="name">Name: </label> <br />
+<input class="standard-input" id="name" type="text" formControlName="name" #name> <br />
+
+<label for="address">Address: </label> <br />
+<input class="standard-input" id="address" type="text" formControlName="address" #address> <br />
+
+<label for="size">Size: </label> <br />
+<input class="standard-input" id="size" type="text" formControlName="size" #size> <br />
+
+<label for="capacity">Capacity: </label> <br />
+<input class="standard-input" id="capacity" type="text" formControlName="capacity" #capacity> <br />
+
+<label for="category">Category: </label> <br />
+<input class="standard-input" id="category" type="text" formControlName="category" #category> <br />
+
+<button type="submit" class="add-button" (click)="add(ownerId.value, name.value, address.value, size.value, capacity.value, category.value)">
+    Check-In
+</button>
+<!-- 
 <label>Owner ID</label>
 <input type="text" name="ownerId" placeholder="please enter ownerid " #ownerId>
 <br><br>
@@ -20,7 +44,7 @@
 
 <label>category</label>
 <input type="text" name="category" placeholder="please enter category " #category>
-<br><br>
+<br><br> -->
 
-<button (click)="add(ownerId.value, name.value, address.value, size.value, capacity.value, category.value);">ADD NEW
-    PARKING LOT</button>
+<!-- <button (click)="add(ownerId.value, name.value, address.value, size.value, capacity.value, category.value);">ADD NEW
+    PARKING LOT</button> -->

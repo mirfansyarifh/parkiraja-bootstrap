@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from '../admin/dashboard/dashboard.component';
 import { DashboardsComponent } from './dashboards/dashboards.component';
 import { DeleteComponent } from './delete/delete.component';
 const routes: Routes = [
+  {path: 'parking-lot', component:DashboardsComponent},
   {
     path: 'parking-lot', 
     children: [

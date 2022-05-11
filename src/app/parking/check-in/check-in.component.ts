@@ -44,7 +44,7 @@ export class CheckInComponent implements OnInit {
     }
   }
 
-  OnSubmit() {
+  onSubmit() {
     if (this.checkInForm.valid && this.childIsValid) {
 
       let parkingContent = {

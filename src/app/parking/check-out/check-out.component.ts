@@ -45,28 +45,31 @@ export class CheckOutComponent implements OnInit {
           next: (results) => {
             this.alertVisible = false;
             let parkingId = results.id
-
-            //Get the bill via ID
-            this.parkingApiService.getBill(parkingId)
-              .subscribe(results => {
-                this.bill = results;
-                this.cardVisible = true;
-              })
+            this.getBill(parkingId);
           },
           error: (e: HttpErrorResponse) => {
-            this.alertValue = e.error.message;
-            this.alertClass = "alert-danger";
-            this.alertVisible = true;
+            this.alert("alert-danger", e.error.message, true);
             this.cardVisible = false;
           }
         });
     }
     else {
-      this.alertValue = "Please fill all inputs";
-      this.alertClass = "alert-danger";
-      this.alertVisible = true;
+      this.alert("alert-danger", "Please fill all inputs", true);
       this.cardVisible = false;
     }
   }
 
+  getBill(parkingId: string) {
+    this.parkingApiService.getBill(parkingId)
+      .subscribe(results => {
+        this.bill = results;
+        this.cardVisible = true;
+      })
+  }
+
+  alert(alertClass: string, alertValue: string, alertVisible: boolean) {
+    this.alertClass = alertClass;
+    this.alertValue = alertValue;
+    this.alertVisible = alertVisible;
+  }
 }

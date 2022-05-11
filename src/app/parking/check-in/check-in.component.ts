@@ -5,6 +5,7 @@ import { HeaderConfigService } from 'src/app/core/service/header-config.service'
 import { LogService } from 'src/app/core/service/log.service';
 import { ParkingApiService } from 'src/app/core/service/parking/parking-api.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ParkingContent } from 'src/app/core/model/parking';
 
 @Component({
   selector: 'app-check-in',
@@ -43,7 +44,7 @@ export class CheckInComponent implements OnInit {
     }
   }
 
-  OnSubmit() {
+  onSubmit() {
     if (this.checkInForm.valid && this.childIsValid) {
 
       let parkingContent = {
@@ -51,29 +52,29 @@ export class CheckInComponent implements OnInit {
         licensePlate: this.plateNumber,
         type: this.checkInForm.get('vehicleType')?.value
       };
-
-      this.logger.log(parkingContent)
-
-      this.parkingApiService.checkIn(parkingContent)
-        .subscribe({
-          next: (res) => {
-            this.alertClass = "alert-success";
-            this.alertValue = "Saved";
-            this.alertVisible = true;
-          },
-          error: (e: HttpErrorResponse) => {
-            this.alertValue = e.error.message;
-            this.alertClass = "alert-danger";
-            this.alertVisible = true;
-          }
-        });
-
+      this.checkIn(parkingContent);
     }
     else {
-      this.alertValue = "Please fill all inputs";
-      this.alertClass = "alert-danger";
-      this.alertVisible = true;
+      this.alert("alert-danger", "Please fill all inputs", true);
     }
 
+  }
+
+  checkIn(parkingContent: object) {
+    this.parkingApiService.checkIn(parkingContent)
+      .subscribe({
+        next: (res) => {
+          this.alert("alert-success", "Saved", true);
+        },
+        error: (e: HttpErrorResponse) => {
+          this.alert("alert-danger", e.error.message, true);
+        }
+      });
+  }
+
+  alert(alertClass: string, alertValue: string, alertVisible: boolean) {
+    this.alertClass = alertClass;
+    this.alertValue = alertValue;
+    this.alertVisible = alertVisible;
   }
 }

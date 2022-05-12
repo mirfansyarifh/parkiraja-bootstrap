@@ -67,6 +67,26 @@ export class CheckOutComponent implements OnInit {
       })
   }
 
+  checkOut(id) {
+    if (this.bill != null) {
+      this.parkingApiService.checkOut(id)
+        .subscribe({
+          next: (res)=>{
+            console.log(res);
+            this.alert("alert-success", "Thankyou. See you later.", true);
+            this.cardVisible = false;
+          },
+          error: (e: HttpErrorResponse) => {
+            this.alert("alert-danger", e.error.message, true);
+            this.cardVisible = false;
+          }
+        });
+    }else {
+      this.alert("alert-danger", "Please check your bill first.", true);
+      this.cardVisible = false;
+    }
+  }
+
   alert(alertClass: string, alertValue: string, alertVisible: boolean) {
     this.alertClass = alertClass;
     this.alertValue = alertValue;

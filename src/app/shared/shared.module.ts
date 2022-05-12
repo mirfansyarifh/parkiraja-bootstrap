@@ -14,10 +14,10 @@ import { FormComponent } from './components/form/form.component';
 import { WidgetCardComponent } from './components/widget-card/widget-card.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { InternalServerErrorComponent } from './pages/internal-server-error/internal-server-error.component';
-import { BackgroundImageComponent } from './background-image/background-image.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { PlateNumberComponent } from './components/plate-number/plate-number.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BackgroundImageComponent } from './components/background-image/background-image.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +33,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     WidgetCardComponent,
     NotFoundComponent,
     InternalServerErrorComponent,
-    BackgroundImageComponent,
     MessagesComponent,
-    PlateNumberComponent
+    PlateNumberComponent,
+    BackgroundImageComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +56,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     WidgetCardComponent,
     NotFoundComponent,
     InternalServerErrorComponent,
-    BackgroundImageComponent,
     MessagesComponent,
     PlateNumberComponent
   ]

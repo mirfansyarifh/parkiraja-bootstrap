@@ -10,7 +10,7 @@
         Type: {{bill?.t?.type}} <br/>
         Fee: {{bill?.price | currency: 'IDR'}} <br/>
       </p>
-      <button type="button">Pay</button>
+      <button (click)="checkOut(bill?.t?.id)" type="button">Pay</button>
     </div>
   </div>
 

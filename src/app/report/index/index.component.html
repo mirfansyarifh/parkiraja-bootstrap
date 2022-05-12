@@ -5,7 +5,6 @@
         <tr style="text-align: center;">
           <th>No</th>
           <th>Report Id</th>
-          <th>Parking Lot Id</th>
           <th>License Plate</th>
           <th>Entrance</th>
           <th>Exit</th>
@@ -18,7 +17,6 @@
         <tr *ngFor="let eachPagingReport of reportContent; let i = index" style="text-align: center;">
           <td>{{ i+1 }}</td>
           <td>{{ eachPagingReport.id }}</td>
-          <td>{{ eachPagingReport.parkingLotId }}</td>
           <td>{{ eachPagingReport.licensePlate }}</td>
           <td>{{ eachPagingReport.entrance }}</td>
           <td>{{ eachPagingReport.exit }}</td>

@@ -46,6 +46,11 @@ export class ParkingApiService {
     return this.http.post<any>(this.targetApiUrl, parking, this.httpOptions);
   }
 
+  /** DELETE: delete vehicle to parking */
+  checkOut(id: any): Observable<any> {
+    return this.http.delete<any>(`${this.targetApiUrl}?id=`+id, this.httpOptions);
+  }
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
